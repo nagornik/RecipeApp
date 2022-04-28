@@ -31,7 +31,6 @@ struct StartTabView: View {
                 .tag(1)
             
         }
-        .environmentObject(RecipeModel())
         
         
     }
@@ -41,5 +40,6 @@ struct StartTabView: View {
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         StartTabView()
+            .environmentObject(RecipeModel())
     }
 }
