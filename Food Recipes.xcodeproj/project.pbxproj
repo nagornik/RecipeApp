@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B095A37281B3DB3001D61FE /* StartTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B095A36281B3DB3001D61FE /* StartTabView.swift */; };
+		4B095A39281B415F001D61FE /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B095A38281B415F001D61FE /* FeaturedView.swift */; };
 		4BA462A92819C1F6000D4A51 /* Food_RecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA462A82819C1F6000D4A51 /* Food_RecipesApp.swift */; };
-		4BA462AB2819C1F6000D4A51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA462AA2819C1F6000D4A51 /* ContentView.swift */; };
+		4BA462AB2819C1F6000D4A51 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA462AA2819C1F6000D4A51 /* ListView.swift */; };
 		4BA462AD2819C1F9000D4A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA462AC2819C1F9000D4A51 /* Assets.xcassets */; };
 		4BA462B02819C1F9000D4A51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA462AF2819C1F9000D4A51 /* Preview Assets.xcassets */; };
 		4BA462BA2819C24C000D4A51 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA462B92819C24C000D4A51 /* Recipe.swift */; };
@@ -20,9 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B095A36281B3DB3001D61FE /* StartTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabView.swift; sourceTree = "<group>"; };
+		4B095A38281B415F001D61FE /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		4BA462A52819C1F6000D4A51 /* Food Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Recipes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA462A82819C1F6000D4A51 /* Food_RecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food_RecipesApp.swift; sourceTree = "<group>"; };
-		4BA462AA2819C1F6000D4A51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4BA462AA2819C1F6000D4A51 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		4BA462AC2819C1F9000D4A51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA462AF2819C1F9000D4A51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4BA462B92819C24C000D4A51 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -86,7 +90,9 @@
 		4BA462B62819C208000D4A51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4BA462AA2819C1F6000D4A51 /* ContentView.swift */,
+				4B095A36281B3DB3001D61FE /* StartTabView.swift */,
+				4B095A38281B415F001D61FE /* FeaturedView.swift */,
+				4BA462AA2819C1F6000D4A51 /* ListView.swift */,
 				4BA462C52819C4F5000D4A51 /* SmallPreviews.swift */,
 				4BA462C82819CA0D000D4A51 /* OneRecipeView.swift */,
 			);
@@ -198,10 +204,12 @@
 			files = (
 				4BA462BA2819C24C000D4A51 /* Recipe.swift in Sources */,
 				4BA462C02819C3A9000D4A51 /* RecipeModel.swift in Sources */,
+				4B095A37281B3DB3001D61FE /* StartTabView.swift in Sources */,
 				4BA462C62819C4F5000D4A51 /* SmallPreviews.swift in Sources */,
 				4BA462C22819C3BD000D4A51 /* GetData.swift in Sources */,
 				4BA462C92819CA0D000D4A51 /* OneRecipeView.swift in Sources */,
-				4BA462AB2819C1F6000D4A51 /* ContentView.swift in Sources */,
+				4BA462AB2819C1F6000D4A51 /* ListView.swift in Sources */,
+				4B095A39281B415F001D61FE /* FeaturedView.swift in Sources */,
 				4BA462A92819C1F6000D4A51 /* Food_RecipesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

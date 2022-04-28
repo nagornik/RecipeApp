@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ListView: View {
     
-    @ObservedObject var model = RecipeModel()
+    @EnvironmentObject var model:RecipeModel
     
     var body: some View {
         
@@ -30,6 +30,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ListView()
     }
 }
