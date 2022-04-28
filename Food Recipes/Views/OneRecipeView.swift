@@ -67,8 +67,8 @@ struct OneRecipeView: View {
                             .padding(.bottom)
                             .foregroundColor(Color.black)
                         
-                            ForEach (recipe.ingredients, id: \.self) { index in
-                                Text("• "+index)
+                            ForEach (recipe.ingredients) { index in
+                                Text("• "+index.name)
                                     .multilineTextAlignment(.leading)
                                     .foregroundColor(.black)
                             }.opacity(ingredientsShow ? 1 : 1)
