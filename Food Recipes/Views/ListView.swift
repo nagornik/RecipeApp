@@ -13,18 +13,36 @@ struct ListView: View {
     
     var body: some View {
         
+        
+        
         NavigationView {
-            List (model.recipesArray) { p in
-                NavigationLink {
-                    OneRecipeView(recipe: p)
-                } label: {
+            VStack (alignment: .leading) {
+                
+                Text("All Recipes")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .padding(.leading)
+                    .padding(.top, 40)
+                
+                ScrollView {
                     
-                    SmallPreviews(recipe: p)
+                    
+                    
+                    LazyVStack (alignment: .leading) {
+                        ForEach (model.recipesArray) { p in
+                            NavigationLink {
+                                OneRecipeView(recipe: p)
+                            } label: {
+                                
+                                SmallPreviews(recipe: p)
+                                    .foregroundColor(.black)
+                            }
+                        }.padding(.leading)
+                            
+                    }
                 }
-            }.navigationBarTitle("All Recipes")
+            }.navigationBarHidden(true)
         }
-        
-        
     }
 }
 

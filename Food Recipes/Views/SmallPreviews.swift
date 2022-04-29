@@ -18,17 +18,18 @@ struct SmallPreviews: View {
             Image(recipe.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 45, height: 45, alignment: .center)
+                .frame(width: 60, height: 60, alignment: .center)
                 .cornerRadius(10)
                 .scaledToFill()
 
             VStack(alignment: .leading) {
                 Text(recipe.name)
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(.medium)
                 Text("Cooking time: "+recipe.totalTime)
                     .font(.caption)
             }
-        }.padding(.vertical, 5)
+        }
     }
 }
 

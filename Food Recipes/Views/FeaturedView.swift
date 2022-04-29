@@ -18,7 +18,8 @@ struct FeaturedView: View {
         VStack (alignment: .leading, spacing: 0) {
 //            Spacer()
             Text("Featured Recipes")
-                .font(.largeTitle.bold())
+                .font(.largeTitle)
+                .fontWeight(.heavy)
                 .padding(.leading)
                 .padding(.top, 40)
             
