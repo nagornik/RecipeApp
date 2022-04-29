@@ -28,7 +28,7 @@ struct SmallPreviews: View {
                 Text("Cooking time: "+recipe.totalTime)
                     .font(.caption)
             }
-        }
+        }.padding(.vertical, 5)
     }
 }
 

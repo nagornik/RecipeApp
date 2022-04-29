@@ -91,7 +91,10 @@ struct OneRecipeView: View {
                                     .foregroundColor(.black)
                                     .padding(.bottom, directionsShow ? 1:0)
                             }.opacity(directionsShow ? 1 : 1)
-                        }.frame(height: directionsShow ? .infinity : 150, alignment: .topLeading)
+                                
+                        }
+                        .frame(height: directionsShow ? .infinity : 150, alignment: .topLeading)
+                        .padding(.bottom, 100)
                             .mask(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black.opacity(directionsShow ? 1 : 0)]), startPoint: .top, endPoint: .bottom))
                     }
                     
