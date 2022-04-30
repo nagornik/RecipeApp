@@ -19,7 +19,7 @@ struct ListView: View {
             VStack (alignment: .leading) {
                 
                 Text("All Recipes")
-                    .font(.largeTitle)
+                    .font(Font.custom("Avenir Black", size: 26))
                     .fontWeight(.heavy)
                     .padding(.leading)
                     .padding(.top, 40)

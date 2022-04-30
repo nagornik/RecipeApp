@@ -24,10 +24,12 @@ struct SmallPreviews: View {
 
             VStack(alignment: .leading) {
                 Text(recipe.name)
-                    .font(.title3)
-                    .fontWeight(.medium)
-                Text("Cooking time: "+recipe.totalTime)
-                    .font(.caption)
+                    .font(Font.custom("Avenir Heavy", size: 18))
+//                    .fontWeight(.medium)
+                Text(recipe.highlights.joined(separator: ", "))
+                    .font(Font.custom("Avenir Book", size: 14))
+                Text("Cook time: "+recipe.totalTime)
+                    .font(Font.custom("Avenir Light", size: 14))
             }
         }
     }

@@ -34,10 +34,10 @@ struct OneRecipeView: View {
                    
                     Text(recipe.name)
                         .padding(.top)
-                        .font(.title.bold())
+                        .font(Font.custom("Avenir Black", size: 26))
 //                        .foregroundColor(.black)
                     Text(recipe.description)
-                        .font(.body)
+                        .font(Font.custom("Avenir", size: 16))
 //                        .foregroundColor(.black)
                     Divider()
                         .padding()
@@ -48,18 +48,19 @@ struct OneRecipeView: View {
                         Text("Total")
                             .multilineTextAlignment(.trailing)
                     }.padding(.bottom, 1)
-                        .font(.body.bold())
-                        .overlay(Text("Cooking").font(.body.bold()))
+                        .font(Font.custom("Avenir Heavy", size: 18))
+                        .overlay(Text("Cooking").font(Font.custom("Avenir Heavy", size: 18)))
                     HStack {
                         Text(recipe.prepTime)
                         Spacer()
                         Text(recipe.totalTime)
-                    }.overlay(Text(recipe.cookTime))
+                    }.overlay(Text(recipe.cookTime).font(Font.custom("Avenir", size: 16)))
+                        .font(Font.custom("Avenir", size: 16))
                     Divider()
                         .padding()
                     
                     Text("Portion size")
-                        .font(.body.bold())
+                        .font(Font.custom("Avenir Heavy", size: 18))
                     
                     GeometryReader { geo in
                     
@@ -69,7 +70,7 @@ struct OneRecipeView: View {
                             Text("6").tag(6)
                             Text("8").tag(8)
                         }.pickerStyle(SegmentedPickerStyle())
-//                            .padding(.bottom)
+                            .font(Font.custom("Avenir", size: 16))
                             .frame(width: geo.size.width/2)
                     }.padding(.bottom)
                         .padding(.bottom)
@@ -79,7 +80,7 @@ struct OneRecipeView: View {
                     } label: {
                         VStack(alignment: .leading) {
                         Text("Ingredients")
-                            .font(.headline)
+                            .font(Font.custom("Avenir Heavy", size: 18))
                             .padding(.bottom)
                             .foregroundColor(Color.black)
                         
@@ -87,6 +88,7 @@ struct OneRecipeView: View {
                                 Text("• " + RecipeModel.getPortion(ingredient: index, recipeServings: recipe.servings, targetServings: servingsSelected) + " " + index.name.lowercased())
                                     .multilineTextAlignment(.leading)
                                     .foregroundColor(.black)
+                                    .font(Font.custom("Avenir", size: 16))
                             }.opacity(ingredientsShow ? 1 : 1)
                         }.frame(height: ingredientsShow ? .infinity : 150, alignment: .topLeading)
                             .mask(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black.opacity(ingredientsShow ? 1 : 0)]), startPoint: .top, endPoint: .bottom))
@@ -97,7 +99,7 @@ struct OneRecipeView: View {
                     } label: {
                         VStack(alignment: .leading) {
                         Text("Directions")
-                            .font(.headline)
+                            .font(Font.custom("Avenir Heavy", size: 18))
                             .padding(.vertical)
                             .foregroundColor(Color.black)
                         
@@ -105,6 +107,7 @@ struct OneRecipeView: View {
                                 Text("• "+index)
                                     .multilineTextAlignment(.leading)
                                     .foregroundColor(.black)
+                                    .font(Font.custom("Avenir", size: 16))
                                     .padding(.bottom, directionsShow ? 1:0)
                             }.opacity(directionsShow ? 1 : 1)
                                 
