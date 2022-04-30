@@ -13,7 +13,7 @@ struct OneRecipeView: View {
     @State var ingredientsShow = false
     @State var directionsShow = false
     
-    
+    @State var servingsSelected = 2
     
     var body: some View {
        
@@ -57,6 +57,21 @@ struct OneRecipeView: View {
                     Divider()
                         .padding()
                     
+                    Text("Portion size")
+                        .font(.body.bold())
+                    
+                    GeometryReader { geo in
+                    
+                        Picker ("", selection: $servingsSelected) {
+                            Text("2").tag(2)
+                            Text("4").tag(4)
+                            Text("6").tag(6)
+                            Text("8").tag(8)
+                        }.pickerStyle(SegmentedPickerStyle())
+//                            .padding(.bottom)
+                            .frame(width: geo.size.width/2)
+                    }.padding(.bottom)
+                        .padding(.bottom)
                     
                     Button {
                         ingredientsShow = !ingredientsShow
@@ -68,7 +83,7 @@ struct OneRecipeView: View {
                             .foregroundColor(Color.black)
                         
                             ForEach (recipe.ingredients) { index in
-                                Text("• "+index.name)
+                                Text("• " + RecipeModel.getPortion(ingredient: index, recipeServings: recipe.servings, targetServings: servingsSelected) + " " + index.name.lowercased())
                                     .multilineTextAlignment(.leading)
                                     .foregroundColor(.black)
                             }.opacity(ingredientsShow ? 1 : 1)
@@ -125,6 +140,6 @@ struct OneRecipeView: View {
 struct OneRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         let recipe = RecipeModel()
-        OneRecipeView(recipe: recipe.recipesArray[4])
+        OneRecipeView(recipe: recipe.recipesArray[6])
     }
 }
