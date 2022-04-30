@@ -12,13 +12,13 @@ struct OneRecipeView: View {
     var recipe:Recipe
     @State var ingredientsShow = false
     @State var directionsShow = false
-    
+    @EnvironmentObject var model:RecipeModel
     @State var servingsSelected = 2
     
     var body: some View {
        
         ScrollView {
-        VStack (alignment: .leading) {
+        LazyVStack (alignment: .leading) {
             
             
             
@@ -27,7 +27,7 @@ struct OneRecipeView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: .infinity, height: 350, alignment: .center)
-                    Spacer()
+//                    Spacer()
                 }
                 
                 VStack (alignment: .leading) {
@@ -35,9 +35,10 @@ struct OneRecipeView: View {
                     Text(recipe.name)
                         .padding(.top)
                         .font(.title.bold())
+//                        .foregroundColor(.black)
                     Text(recipe.description)
                         .font(.body)
-                        
+//                        .foregroundColor(.black)
                     Divider()
                         .padding()
                     
@@ -114,11 +115,11 @@ struct OneRecipeView: View {
                     }
                     
                     
-                    
                 }
                 .padding([.leading, .trailing], 20.0)
                 .padding(.bottom)
                 .background(Color.white)
+                .foregroundColor(.black)
                 .cornerRadius(20)
                 .padding(.top, -20)
                 
@@ -140,6 +141,7 @@ struct OneRecipeView: View {
 struct OneRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         let recipe = RecipeModel()
-        OneRecipeView(recipe: recipe.recipesArray[6])
+        OneRecipeView(recipe: recipe.recipesArray[1])
+            .environmentObject(RecipeModel())
     }
 }

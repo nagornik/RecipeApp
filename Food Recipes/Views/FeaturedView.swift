@@ -10,7 +10,8 @@ import SwiftUI
 struct FeaturedView: View {
     
     @EnvironmentObject var model:RecipeModel
-    
+    @State var isOneRecipeShowing = false
+    @State var tabSelectionIndex = 0
     var body: some View {
         
         
@@ -24,26 +25,34 @@ struct FeaturedView: View {
                 .padding(.top, 40)
             
             GeometryReader { geo in
-                TabView {
-                    ForEach (model.recipesArray) { index in
-                        if index.featured {
+                TabView (selection: $tabSelectionIndex) {
+                    ForEach (0..<model.recipesArray.count) { index in
+                        if model.recipesArray[index].featured {
                             
-                            ZStack {
-                                
-                                Rectangle()
-                                
-                                VStack {
-                                    Image(index.image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .clipped()
-                                    Text(index.name)
-                                        .foregroundColor(.black)
-                                        .padding(.bottom)
+                            Button {
+                                self.isOneRecipeShowing = true
+                            } label: {
+                                ZStack {
                                     
+                                    Rectangle()
+                                    
+                                    VStack {
+                                        Image(model.recipesArray[index].image)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .clipped()
+                                        Text(model.recipesArray[index].name)
+                                            .foregroundColor(.black)
+                                            .padding(.bottom)
+                                        
+                                        
+                                    }
                                     
                                 }
-                                
+                            }
+                            .tag(index)
+                            .sheet(isPresented: $isOneRecipeShowing) {
+                                OneRecipeView(recipe: model.recipesArray[index])
                             }
                             .foregroundColor(.white)
                             .frame(width: geo.size.width-40, height: geo.size.height-100)
@@ -65,11 +74,11 @@ struct FeaturedView: View {
                 
                 Text("Preparation Time:")
                     .font(.headline)
-                Text("1 hour")
+                Text(model.recipesArray[tabSelectionIndex].prepTime)
                 
                 Text("Highlights")
                     .font(.headline)
-                Text("Healthy, Hearty")
+                Text(model.recipesArray[tabSelectionIndex].highlights.joined(separator: ", "))
             }
             .padding([.leading, .bottom])
             
