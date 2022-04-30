@@ -12,12 +12,11 @@ struct FeaturedView: View {
     @EnvironmentObject var model:RecipeModel
     @State var isOneRecipeShowing = false
     @State var tabSelectionIndex = 0
+    
     var body: some View {
         
-        
-        
         VStack (alignment: .leading, spacing: 0) {
-//            Spacer()
+            
             Text("Featured Recipes")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -28,7 +27,6 @@ struct FeaturedView: View {
                 TabView (selection: $tabSelectionIndex) {
                     ForEach (0..<model.recipesArray.count) { index in
                         if model.recipesArray[index].featured {
-                            
                             Button {
                                 self.isOneRecipeShowing = true
                             } label: {
@@ -44,10 +42,7 @@ struct FeaturedView: View {
                                         Text(model.recipesArray[index].name)
                                             .foregroundColor(.black)
                                             .padding(.bottom)
-                                        
-                                        
                                     }
-                                    
                                 }
                             }
                             .tag(index)
@@ -59,15 +54,12 @@ struct FeaturedView: View {
                             .cornerRadius(15)
                             .shadow(color: Color(.init(srgbRed: 0, green: 0, blue: 0, alpha: 0.5)), radius: 10, x: -5, y: 5)
                             
-                            
                         }
                     }
-                    
                     
                 }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                     .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     
-                
             }
             
             VStack (alignment: .leading, spacing: 10) {
@@ -81,13 +73,19 @@ struct FeaturedView: View {
                 Text(model.recipesArray[tabSelectionIndex].highlights.joined(separator: ", "))
             }
             .padding([.leading, .bottom])
-            
-            
+            .onAppear(perform: firstFeaturedIndex)
             
         }
         
-        
     }
+    
+    func firstFeaturedIndex() {
+        let index = model.recipesArray.firstIndex { recipe in
+            return recipe.featured
+        }
+        tabSelectionIndex = index ?? 0
+    }
+
 }
 
 struct FeaturedView_Previews: PreviewProvider {
